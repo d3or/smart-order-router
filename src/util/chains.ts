@@ -79,6 +79,8 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.BASE;
     case 84531:
       return ChainId.BASE_GOERLI;
+    case 11124:
+      return ChainId.ABSTRACT_TESTNET;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -102,6 +104,7 @@ export enum ChainName {
   AVALANCHE = 'avalanche-mainnet',
   BASE = 'base-mainnet',
   BASE_GOERLI = 'base-goerli',
+  ABSTRACT_TESTNET = 'abstract-testnet',
 }
 
 
@@ -177,6 +180,11 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
     'ETH',
     'ETHER',
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+  ],
+  [ChainId.ABSTRACT_TESTNET]: [
+    'ETH',
+    'ETHER',
+    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
   ]
 };
 
@@ -197,6 +205,7 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.BNB]: NativeCurrencyName.BNB,
   [ChainId.AVALANCHE]: NativeCurrencyName.AVALANCHE,
   [ChainId.BASE]: NativeCurrencyName.ETHER,
+  [ChainId.ABSTRACT_TESTNET]: NativeCurrencyName.ETHER,
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -235,6 +244,8 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.BASE;
     case 84531:
       return ChainName.BASE_GOERLI;
+    case 11124:
+      return ChainName.ABSTRACT_TESTNET;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -274,6 +285,8 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
       return process.env.JSON_RPC_PROVIDER_AVALANCHE!;
     case ChainId.BASE:
       return process.env.JSON_RPC_PROVIDER_BASE!;
+    case ChainId.ABSTRACT_TESTNET:
+      return process.env.JSON_RPC_ABSTRACT_TESTNET!;
     default:
       throw new Error(`Chain id: ${id} not supported`);
   }
@@ -400,7 +413,14 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
     18,
     'WETH',
     'Wrapped Ether'
-  )
+  ),
+  [ChainId.ABSTRACT_TESTNET]: new Token(
+    ChainId.ABSTRACT_TESTNET,
+    '0x9EDCde0257F2386Ce177C3a7FCdd97787F0D841d',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
 };
 
 function isMatic(

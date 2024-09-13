@@ -189,6 +189,9 @@ export const USDC_OPTIMISM_GOERLI = new Token(
   'USDC',
   'USD//C'
 );
+
+// FIXME: add abstract USDC
+
 export const USDT_OPTIMISM_GOERLI = new Token(
   ChainId.OPTIMISM_GOERLI,
   '0x853eb4bA5D0Ba2B77a0A5329Fd2110d5CE149ECE',
@@ -542,7 +545,7 @@ export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,
     protected multicall2Provider: IMulticallProvider
-  ) {}
+  ) { }
 
   private async getTokenSymbol(
     addresses: string[],
@@ -687,10 +690,8 @@ export class TokenProvider implements ITokenProvider {
       }
 
       log.info(
-        `Got token symbol and decimals for ${
-          Object.values(addressToToken).length
-        } out of ${addresses.length} tokens on-chain ${
-          providerConfig ? `as of: ${providerConfig?.blockNumber}` : ''
+        `Got token symbol and decimals for ${Object.values(addressToToken).length
+        } out of ${addresses.length} tokens on-chain ${providerConfig ? `as of: ${providerConfig?.blockNumber}` : ''
         }`
       );
     }

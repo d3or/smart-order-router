@@ -387,7 +387,7 @@ export type AlphaRouterConfig = {
 
 export class AlphaRouter
   implements IRouter<AlphaRouterConfig>,
-    ISwapToRatio<AlphaRouterConfig, SwapAndAddConfig> {
+  ISwapToRatio<AlphaRouterConfig, SwapAndAddConfig> {
   protected chainId: ChainId;
   protected provider: BaseProvider;
   protected multicall2Provider: UniswapMulticallProvider;
@@ -517,6 +517,40 @@ export class AlphaRouter
             {
               gasLimitOverride: 3_000_000,
               multicallChunk: 45,
+            },
+            {
+              baseBlockOffset: -10,
+              rollback: {
+                enabled: true,
+                attemptsBeforeRollback: 1,
+                rollbackBlockOffset: -10,
+              },
+            }
+          );
+          break;
+        case ChainId.ABSTRACT_TESTNET:
+          this.onChainQuoteProvider = new OnChainQuoteProvider(
+            chainId,
+            provider,
+            this.multicall2Provider,
+            {
+              retries: 2,
+              minTimeout: 100,
+              maxTimeout: 1000,
+            },
+            {
+              multicallChunk: 27,
+              gasLimitPerCall: 3_000_000,
+              quoteMinSuccessRate: 0.1,
+
+            },
+            {
+              gasLimitOverride: 6_000_000,
+              multicallChunk: 13,
+            },
+            {
+              gasLimitOverride: 6_000_000,
+              multicallChunk: 13,
             },
             {
               baseBlockOffset: -10,

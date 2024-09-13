@@ -9,6 +9,17 @@ export const BNB_NONFUNGIBLE_POSITION_MANAGER_ADDRESS = CHAIN_TO_ADDRESSES_MAP[C
 export const BNB_SWAP_ROUTER_02_ADDRESS = CHAIN_TO_ADDRESSES_MAP[ChainId.BNB].swapRouter02Address!;
 export const BNB_V3_MIGRATOR_ADDRESS = CHAIN_TO_ADDRESSES_MAP[ChainId.BNB].v3MigratorAddress;
 
+// to avoid patching - adding data here. it is one time unchangeable data
+const ABSTRACT_TESTNET_ADDRESSES = {
+  v3CoreFactoryAddress: '0x84c0897Ee2B89cb183139EbC507826167F15D389',
+  multicallAddress: '0xeBd1e414eBb98522cfd932104bA41FAc10A4eF35',
+  quoterAddress: '0xf8E9Ae93ae5674FF8E3ebc97F14699b12560F954',
+  v3MigratorAddress: '0x14CaDB4C8d0435AcA08e36c35BEDab54872B6585',
+  nonfungiblePositionManagerAddress: '0x16577d38b648533A6DE9E58d35726746d8E63181',
+  tickLensAddress: '0xb2B56d2E9Ddb4698B14D35572569eb3d0f7F984C',
+  swapRouter02Address: '0xE41cdAE209E91383d7adC7dB030E9aF5DDC43882',
+}
+
 export const V3_CORE_FACTORY_ADDRESSES: AddressMap = {
   ...constructSameAddressMap(FACTORY_ADDRESS),
   [ChainId.CELO]: CHAIN_TO_ADDRESSES_MAP[ChainId.CELO].v3CoreFactoryAddress,
@@ -20,6 +31,7 @@ export const V3_CORE_FACTORY_ADDRESSES: AddressMap = {
   [ChainId.AVALANCHE]: CHAIN_TO_ADDRESSES_MAP[ChainId.AVALANCHE].v3CoreFactoryAddress,
   [ChainId.BASE_GOERLI]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE_GOERLI].v3CoreFactoryAddress,
   [ChainId.BASE]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE].v3CoreFactoryAddress,
+  [ChainId.ABSTRACT_TESTNET]: ABSTRACT_TESTNET_ADDRESSES.v3CoreFactoryAddress,
   // TODO: Gnosis + Moonbeam contracts to be deployed
 };
 
@@ -34,6 +46,7 @@ export const QUOTER_V2_ADDRESSES: AddressMap = {
   [ChainId.AVALANCHE]: CHAIN_TO_ADDRESSES_MAP[ChainId.AVALANCHE].quoterAddress,
   [ChainId.BASE_GOERLI]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE_GOERLI].quoterAddress,
   [ChainId.BASE]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE].quoterAddress,
+  [ChainId.ABSTRACT_TESTNET]: ABSTRACT_TESTNET_ADDRESSES.quoterAddress,
   // TODO: Gnosis + Moonbeam contracts to be deployed
 };
 
@@ -53,10 +66,11 @@ export const UNISWAP_MULTICALL_ADDRESSES: AddressMap = {
   [ChainId.AVALANCHE]: CHAIN_TO_ADDRESSES_MAP[ChainId.AVALANCHE].multicallAddress,
   [ChainId.BASE_GOERLI]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE_GOERLI].multicallAddress,
   [ChainId.BASE]: CHAIN_TO_ADDRESSES_MAP[ChainId.BASE].multicallAddress,
+  [ChainId.ABSTRACT_TESTNET]: ABSTRACT_TESTNET_ADDRESSES.multicallAddress,
   // TODO: Gnosis + Moonbeam contracts to be deployed
 };
 
-export const SWAP_ROUTER_02_ADDRESSES = (chainId: number) : string => {
+export const SWAP_ROUTER_02_ADDRESSES = (chainId: number): string => {
   if (chainId == ChainId.BNB) {
     return BNB_SWAP_ROUTER_02_ADDRESS;
   }
@@ -162,5 +176,13 @@ export const WETH9: {
     18,
     'WETH',
     'Wrapped Ether'
-  )
+  ),
+  [ChainId.ABSTRACT_TESTNET]: new Token(
+    ChainId.ABSTRACT_TESTNET,
+    '0x9EDCde0257F2386Ce177C3a7FCdd97787F0D841d',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
+
 };

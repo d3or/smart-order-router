@@ -688,21 +688,20 @@ export const USDCE_ZKSYNC = new Token(
   'Bridged USDC (zkSync)'
 );
 
-//FIXME: update with real value
-export const USDC_ABSTRACT_TESTNET = new Token(
-  ChainId.ZKSYNC,
-  '0xe4C7fBB0a626ed208021ccabA6Be1566905E2dFc',
-  6,
-  'USDC.e',
-  'Bridged USDC (Abstract)'
-);
-
 export const DAI_ZKSYNC = new Token(
   ChainId.ZKSYNC,
   '0x4B9eb6c0b6ea15176BBF62841C6B2A8a398cb656',
   18,
   'DAI',
   'Dai Stablecoin'
+);
+
+export const USDC_ABSTRACT_TESTNET = new Token(
+  ChainId.ABSTRACT_TESTNET,
+  '0xe4C7fBB0a626ed208021ccabA6Be1566905E2dFc',
+  6,
+  'USDC',
+  'USDC'
 );
 
 export class TokenProvider implements ITokenProvider {

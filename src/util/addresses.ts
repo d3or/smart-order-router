@@ -11,13 +11,13 @@ export const BNB_V3_MIGRATOR_ADDRESS = CHAIN_TO_ADDRESSES_MAP[ChainId.BNB].v3Mig
 
 // to avoid patching - adding data here. it is one time unchangeable data
 const ABSTRACT_TESTNET_ADDRESSES = {
-  v3CoreFactoryAddress: '0x84c0897Ee2B89cb183139EbC507826167F15D389',
-  multicallAddress: '0xeBd1e414eBb98522cfd932104bA41FAc10A4eF35',
-  quoterAddress: '0xf8E9Ae93ae5674FF8E3ebc97F14699b12560F954',
-  v3MigratorAddress: '0x14CaDB4C8d0435AcA08e36c35BEDab54872B6585',
-  nonfungiblePositionManagerAddress: '0x16577d38b648533A6DE9E58d35726746d8E63181',
-  tickLensAddress: '0xb2B56d2E9Ddb4698B14D35572569eb3d0f7F984C',
-  swapRouter02Address: '0xE41cdAE209E91383d7adC7dB030E9aF5DDC43882',
+  v3CoreFactoryAddress: '0x2E17FF9b877661bDFEF8879a4B31665157a960F0',
+  multicallAddress: '0x84B11838e53f53DBc1fca7a6413cDd2c7Ab15DB8',
+  quoterAddress: '0xdE41045eb15C8352413199f35d6d1A32803DaaE2',
+  v3MigratorAddress: '0xf3C430AF1C9C18d414b5cf890BEc08789431b6Ed',
+  nonfungiblePositionManagerAddress: '0x069f199763c045A294C7913E64bA80E5F362A5d7',
+  tickLensAddress: '0x2EC62f97506E0184C423B01c525ab36e1c61f78A',
+  swapRouter02Address: '0x3914e72A73181a3EdB4dBC445cE2A01d480eacb1',
 }
 
 export const V3_CORE_FACTORY_ADDRESSES: AddressMap = {

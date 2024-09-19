@@ -286,7 +286,7 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
     case ChainId.BASE:
       return process.env.JSON_RPC_PROVIDER_BASE!;
     case ChainId.ABSTRACT_TESTNET:
-      return process.env.JSON_RPC_ABSTRACT_TESTNET!;
+      return process.env.JSON_RPC_PROVIDER_ABSTRACT_TESTNET!;
     default:
       throw new Error(`Chain id: ${id} not supported`);
   }

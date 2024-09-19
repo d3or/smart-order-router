@@ -26,6 +26,7 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.BLAST,
   ChainId.ZORA,
   ChainId.ZKSYNC,
+  ChainId.ABSTRACT_TESTNET,
   // Gnosis and Moonbeam don't yet have contracts deployed yet
 ];
 
@@ -110,6 +111,8 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.ZORA;
     case 324:
       return ChainId.ZKSYNC;
+    case 11124:
+      return ChainId.ABSTRACT_TESTNET;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -138,6 +141,7 @@ export enum ChainName {
   BLAST = 'blast-mainnet',
   ZORA = 'zora-mainnet',
   ZKSYNC = 'zksync-mainnet',
+  ABSTRACT_TESTNET = 'abstract-testnet'
 }
 
 export enum NativeCurrencyName {
@@ -232,6 +236,11 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
     'ETHER',
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
   ],
+  [ChainId.ABSTRACT_TESTNET]: [
+    'ETH',
+    'ETHER',
+    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+  ],
 };
 
 export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
@@ -256,6 +265,7 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.BLAST]: NativeCurrencyName.ETHER,
   [ChainId.ZORA]: NativeCurrencyName.ETHER,
   [ChainId.ZKSYNC]: NativeCurrencyName.ETHER,
+  [ChainId.ABSTRACT_TESTNET]: NativeCurrencyName.ETHER,
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -304,6 +314,8 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.ZORA;
     case 324:
       return ChainName.ZKSYNC;
+    case 11124:
+      return ChainName.ABSTRACT_TESTNET;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -353,6 +365,8 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
       return process.env.JSON_RPC_PROVIDER_ZORA!;
     case ChainId.ZKSYNC:
       return process.env.JSON_RPC_PROVIDER_ZKSYNC!;
+    case ChainId.ABSTRACT_TESTNET:
+      return process.env.JSON_RPC_PROVIDER_ABSTRACT_TESTNET!;
     default:
       throw new Error(`Chain id: ${id} not supported`);
   }
@@ -525,6 +539,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
   [ChainId.ZKSYNC]: new Token(
     ChainId.ZKSYNC,
     '0x5aea5775959fbc2557cc8789bc1bf90a239d9a91',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
+  [ChainId.ABSTRACT_TESTNET]: new Token(
+    ChainId.ABSTRACT_TESTNET,
+    '0x9EDCde0257F2386Ce177C3a7FCdd97787F0D841d',
     18,
     'WETH',
     'Wrapped Ether'

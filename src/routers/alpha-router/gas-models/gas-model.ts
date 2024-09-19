@@ -24,6 +24,7 @@ import {
   DAI_ZKSYNC,
   USDB_BLAST,
   USDCE_ZKSYNC,
+  USDC_ABSTRACT_TESTNET,
   USDC_ARBITRUM,
   USDC_ARBITRUM_GOERLI,
   USDC_ARBITRUM_SEPOLIA,
@@ -122,6 +123,7 @@ export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.BLAST]: [USDB_BLAST],
   [ChainId.ZORA]: [USDC_ZORA],
   [ChainId.ZKSYNC]: [DAI_ZKSYNC, USDCE_ZKSYNC, USDC_ZKSYNC],
+  [ChainId.ABSTRACT_TESTNET]: [USDC_ABSTRACT_TESTNET],
 };
 
 export type L1ToL2GasCosts = {

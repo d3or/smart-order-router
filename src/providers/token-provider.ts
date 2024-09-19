@@ -688,6 +688,15 @@ export const USDCE_ZKSYNC = new Token(
   'Bridged USDC (zkSync)'
 );
 
+//FIXME: update with real value
+export const USDC_ABSTRACT_TESTNET = new Token(
+  ChainId.ZKSYNC,
+  '0xe4C7fBB0a626ed208021ccabA6Be1566905E2dFc',
+  6,
+  'USDC.e',
+  'Bridged USDC (Abstract)'
+);
+
 export const DAI_ZKSYNC = new Token(
   ChainId.ZKSYNC,
   '0x4B9eb6c0b6ea15176BBF62841C6B2A8a398cb656',
@@ -700,7 +709,7 @@ export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,
     protected multicall2Provider: IMulticallProvider
-  ) {}
+  ) { }
 
   private async getTokenSymbol(
     addresses: string[],
@@ -845,10 +854,8 @@ export class TokenProvider implements ITokenProvider {
       }
 
       log.info(
-        `Got token symbol and decimals for ${
-          Object.values(addressToToken).length
-        } out of ${addresses.length} tokens on-chain ${
-          providerConfig ? `as of: ${providerConfig?.blockNumber}` : ''
+        `Got token symbol and decimals for ${Object.values(addressToToken).length
+        } out of ${addresses.length} tokens on-chain ${providerConfig ? `as of: ${providerConfig?.blockNumber}` : ''
         }`
       );
     }
@@ -969,6 +976,8 @@ export const USDC_ON = (chainId: ChainId): Token => {
       return USDC_ZORA;
     case ChainId.ZKSYNC:
       return USDCE_ZKSYNC;
+    case ChainId.ABSTRACT_TESTNET:
+      return USDC_ABSTRACT_TESTNET;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }

@@ -178,7 +178,7 @@ export class V3PoolProvider
       tokenB: token1,
       fee: feeAmount,
       initCodeHashManualOverride: undefined,
-      chainId: this.chainId as any,
+      chainId: this.chainId,
     });
 
     this.POOL_ADDRESS_CACHE[cacheKey] = poolAddress;

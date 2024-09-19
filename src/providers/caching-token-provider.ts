@@ -25,6 +25,7 @@ import {
   ETH_BNB,
   ITokenProvider,
   TokenAccessor,
+  USDC_ABSTRACT_TESTNET,
   USDC_ARBITRUM,
   USDC_ARBITRUM_GOERLI,
   USDC_AVAX,
@@ -145,6 +146,7 @@ export const CACHE_SEED_TOKENS: {
     WETH: WRAPPED_NATIVE_CURRENCY[ChainId.BASE],
   },
   [ChainId.ABSTRACT_TESTNET]: {
+    USDC: USDC_ABSTRACT_TESTNET,
     WETH: WRAPPED_NATIVE_CURRENCY[ChainId.ABSTRACT_TESTNET],
   }
   // Currently we do not have providers for Moonbeam mainnet or Gnosis testnet

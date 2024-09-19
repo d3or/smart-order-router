@@ -22,6 +22,7 @@ import {
   DAI_SEPOLIA,
   FEI_MAINNET,
   ITokenProvider,
+  USDC_ABSTRACT_TESTNET,
   USDC_ARBITRUM,
   USDC_ARBITRUM_GOERLI,
   USDC_AVAX,
@@ -173,7 +174,7 @@ const baseTokensByChain: { [chainId in ChainId]?: Token[] } = {
     USDC_BASE,
   ],
   [ChainId.ABSTRACT_TESTNET]: [
-    //FIXME: update with USDC data
+    USDC_ABSTRACT_TESTNET,
   ],
 };
 

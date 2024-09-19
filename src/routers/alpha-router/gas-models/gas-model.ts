@@ -15,6 +15,7 @@ import {
   DAI_OPTIMISM_GOERLI,
   DAI_POLYGON_MUMBAI,
   DAI_SEPOLIA,
+  USDC_ABSTRACT_TESTNET,
   USDC_ARBITRUM,
   USDC_ARBITRUM_GOERLI,
   USDC_AVAX,
@@ -74,7 +75,7 @@ export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.BNB]: [USDT_BNB, USDC_BNB, DAI_BNB],
   [ChainId.AVALANCHE]: [DAI_AVAX, USDC_AVAX],
   [ChainId.BASE]: [USDC_BASE],
-  [ChainId.ABSTRACT_TESTNET]: [/*FIXME: update with USDC*/],
+  [ChainId.ABSTRACT_TESTNET]: [USDC_ABSTRACT_TESTNET],
 };
 
 export type L1ToL2GasCosts = {

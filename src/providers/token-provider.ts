@@ -190,7 +190,13 @@ export const USDC_OPTIMISM_GOERLI = new Token(
   'USD//C'
 );
 
-// FIXME: add abstract USDC
+export const USDC_ABSTRACT_TESTNET = new Token(
+  ChainId.ABSTRACT_TESTNET,
+  '0xe4C7fBB0a626ed208021ccabA6Be1566905E2dFc',
+  6,
+  'USDC',
+  'USDC'
+);
 
 export const USDT_OPTIMISM_GOERLI = new Token(
   ChainId.OPTIMISM_GOERLI,
@@ -796,6 +802,8 @@ export const USDC_ON = (chainId: ChainId): Token => {
       return USDC_BASE;
     case ChainId.BASE_GOERLI:
       return USDC_BASE_GOERLI;
+    case ChainId.ABSTRACT_TESTNET:
+      return USDC_ABSTRACT_TESTNET;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }

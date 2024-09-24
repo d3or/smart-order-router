@@ -27,7 +27,7 @@
     "prepare-release": "run-s cov:check doc:html version doc:publish",
     "test": "jest test/unit",
     "integ-test": "TS_NODE=true jest test/integ --testRunner='jest-circus/runner'",
-    "prepare": "husky",
+    "prepare": "npm run build",
     "postinstall": "patch-package"
   },
   "engines": {
